@@ -1,12 +1,10 @@
 # Fortify-Scan-Log
 This application scans Fortify SCA log files and provides both a summary and a detailed report.
 
-# Introduction
-
+## Introduction
 This document describes how to analyze the Prevoty Results log file, using the tool ScanLog.jar.
 
-# Preparations
-
+## Preparations
 1. Get a copy of the tool ScanLog.jar from the Prevoty Customer Success Portal here
 2. Copy ScanLog.jar onto the server running Prevoty
 3. Get a copy of the Prevoty JVM arguments from the same server
@@ -21,8 +19,7 @@ prevoty\_json.log
 /opt/Apache/Tomcat-8.5.5/prevoty\_json.log
 9. This is &quot;_the path_&quot; to the Prevoty Results log file we will use throughout the rest of the document
 
-# Parameters
-
+## Parameters
 ScanLog.jar support the following command line arguments:
 
 - -s (for summary)
@@ -38,8 +35,7 @@ ScanLog.jar support the following command line arguments:
 - -q (for SQL)
   - Converts the Prevoty Results log file to a MySQL script, which can be used to load a MySQL database with the Prevoty results for further investigation
 
-# Execution
-
+## Execution
 1. Log on to the server running Prevoty
 2. Open a terminal
 3. Go into the directory where you have copied ScanLog.jar
@@ -60,35 +56,8 @@ java -jar ./ScanLog.jar /opt/Apache/Tomcat-8.5.5/logs/prevoty\_json.log -h
 java -jar ./ScanLog.jar /opt/Apache/Tomcat-8.5.5/logs/prevoty\_json.log -q
 5. Executing ScanLog.jar without any parameters will show you the help screen. E.g.:
 
-╔══════════════════════════════════════════════════════
-
-║ ScanLog, Scan Prevoty Results Log file.
-
-║ Version: 3.1.1 - Sat Sep 29, 2018 - PWR Created
-
-║ Usage: java -jar ScanLog.jar \&lt;Prevoty Results Log file path\&gt; \&lt;action\&gt;
-
-║ Example: java -jar ScanLog.jar /opt/Prevoty/prevoty\_json.log -s
-
-║ Action: -s Summary (default)
-
-║ -a Analyze
-
-║ -h Convert to HTML format output
-
-║ -t Convert to text format output
-
-║ -q Convert to SQL format output
-
-║ -o Optimize for Prevoty Application Configuration file
-
-║ Notes: - It is expected the Prevoty Results Log file is readable.
-
-║ - Written by PWR on his own accord; Prevoty cannot be held liable for any errors, mistakes, omissions, etc.
-
-║ - USE AT YOUR OWN RISK!
-
-╚══════════════════════════════════════════════════════
+|ScanLog, Scan Prevoty Results Log file.<br />Version: 3.1.1 - Sat Sep 29, 2018 - PWR Created<br />Usage: java -jar ScanLog.jar &lt;Prevoty Results Log file path&gt; &lt;action&gt;<br />Example: java -jar ScanLog.jar /opt/Prevoty/prevoty\_json.log -s<br />Action:<br />-s Summary (default)<br />-a Analyze<br />-h Convert to HTML format output<br />-t Convert to text format output<br />-q Convert to SQL format output<br />-o Optimize for Prevoty Application Configuration file<br />Notes:<br />- It is expected the Prevoty Results Log file is readable.<br />- Written by PWR on his own accord; Prevoty cannot be held liable for any errors, mistakes, omissions, etc.<br />- USE AT YOUR OWN RISK!|
+|:-----------------------------------------------------------|
 
 1. jar sends it output to screen, to send it to a text file, you can redirect the output with the greater than sign (\&gt;). E.g.:
   1. To get a summary:
@@ -103,5 +72,3 @@ java -jar ./ScanLog.jar /opt/Apache/Tomcat-8.5.5/logs/prevoty\_json.log -t \&gt;
 java -jar ./ScanLog.jar /opt/Apache/Tomcat-8.5.5/logs/prevoty\_json.log -h \&gt; ./prevoty\_json.html
   6. To generate the MySQL script:
 java -jar ./ScanLog.jar /opt/Apache/Tomcat-8.5.5/logs/prevoty\_json.log -s \&gt; ./prevoty\_json.sql
-
-RackMultipart20210423-4-1q2pt1h.docx October 3, 2018 Page 4 of 4
